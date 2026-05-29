@@ -31,6 +31,7 @@ body {
 
   --ease-slow: cubic-bezier(0.25, 0.05, 0.15, 1);
   --ease-glacial: cubic-bezier(0.22, 0.05, 0.1, 1);
+  --ease-hover: cubic-bezier(0.5, 0, 0.3, 1);
   --duration-slow: 1.8s;
   --duration-glacial: 2.5s;
 
@@ -106,7 +107,8 @@ main { position: relative; z-index: 1; }
 }
 .loading-screen.hidden { opacity: 0; pointer-events: none; }
 .loading-content { text-align: center; }
-.loading-title { font-family: var(--font-serif); font-size: clamp(3rem, 8vw, 6rem); color: var(--warm-gray); letter-spacing: 0.3em; margin-bottom: 2rem; }
+.loading-title { font-family: var(--font-serif); font-size: clamp(3rem, 8vw, 6rem); color: var(--warm-gray); letter-spacing: 0.3em; margin-bottom: 2rem; animation: loadTitleIn 2.5s ease both; }
+@keyframes loadTitleIn { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
 .loading-bar { width: 200px; height: 1px; background: var(--dark-charcoal); margin: 0 auto 1.5rem; overflow: hidden; }
 .loading-progress { height: 100%; width: 0%; background: var(--warm-gray); transition: width 0.3s ease; }
 .loading-text { font-family: var(--font-sans); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted-gray); }
@@ -218,7 +220,7 @@ main { position: relative; z-index: 1; }
   min-height: 70vh; background: var(--near-black);
 }
 .split-panel-image { position: relative; overflow: hidden; height: 70vh; }
-.split-panel-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.5s var(--ease-slow); }
+.split-panel-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 2.5s var(--ease-hover); }
 .split-panel-image:hover img { transform: scale(1.03); }
 .split-panel-content {
   display: flex; flex-direction: column; justify-content: center;
@@ -306,7 +308,7 @@ main { position: relative; z-index: 1; }
 .gallery-card:hover .gallery-card-image img { transform: scale(1.05); }
 .gallery-card:hover .card-image-sweep { opacity: 1; }
 .gallery-card-image { position: relative; height: 240px; overflow: hidden; margin-bottom: 1.5rem; }
-.gallery-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-slow); }
+.gallery-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 2.5s var(--ease-hover); }
 .gallery-card-number { margin-bottom: 0.5rem; }
 .gallery-card-title { font-family: var(--font-serif); font-size: clamp(1.25rem, 2vw, 1.75rem); margin-bottom: 0.75rem; }
 .gallery-card-description { font-size: clamp(0.85rem, 1vw, 0.95rem); max-width: 320px; }
@@ -528,8 +530,8 @@ main { position: relative; z-index: 1; }
 .exploration-card:hover .card-image img { transform: scale(1.05); }
 .exploration-card:hover .card-image-sweep { opacity: 1; }
 .card-image { position: relative; height: 280px; overflow: hidden; margin-bottom: 1.5rem; }
-.card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-slow); }
-.card-image-sweep { position: absolute; inset: 0; background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.04) 50%, transparent 70%); opacity: 0; transition: opacity 0.8s var(--ease-slow); pointer-events: none; }
+.card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 2.5s var(--ease-hover); }
+.card-image-sweep { position: absolute; inset: 0; background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.04) 50%, transparent 70%); opacity: 0; transition: opacity 1.2s var(--ease-hover); pointer-events: none; }
 .card-number { margin-bottom: 0.5rem; }
 .card-title { font-family: var(--font-serif); font-size: clamp(1.5rem, 2.5vw, 2rem); margin-bottom: 0.75rem; }
 .card-description { font-size: clamp(0.9rem, 1.1vw, 1rem); max-width: 360px; }
@@ -537,7 +539,7 @@ main { position: relative; z-index: 1; }
 /* ── Spotlight section ── */
 .spotlight { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; min-height: 80vh; }
 .spotlight-image { position: relative; height: 70vh; overflow: hidden; }
-.spotlight-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.5s var(--ease-slow); }
+.spotlight-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 2.5s var(--ease-hover); }
 .spotlight-image:hover img { transform: scale(1.03); }
 .spotlight-content { max-width: 480px; }
 .spotlight-content > * { margin-bottom: 1.5rem; }

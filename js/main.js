@@ -55,25 +55,41 @@ document.addEventListener('DOMContentLoaded', () => {
   const loading = document.getElementById('loadingScreen');
   const progress = document.getElementById('loadingProgress');
   let ready = false;
-  let p = 0;
+  const MIN_LOAD_MS = 3000;
+  const startTime = Date.now();
 
   preloadImages(keyImages).then(() => {
     ready = true;
-    document.querySelector('.cinematic-bg')?.classList.add('loaded');
   });
 
   const interval = setInterval(() => {
-    if (p < 70) p += Math.random() * 10 + 3;
-    else if (ready && p < 90) p += 2;
-    else if (ready && p >= 90) p = 100;
-    else p += Math.random() * 2 + 0.5;
+    const elapsed = Date.now() - startTime;
+    let p;
 
-    if (p >= 100) { p = 100; clearInterval(interval); }
-    if (progress) progress.style.width = p + '%';
-    if (p >= 100 && loading) {
-      setTimeout(() => loading.classList.add('hidden'), 600);
+    if (elapsed < MIN_LOAD_MS) {
+      if (!ready && elapsed > MIN_LOAD_MS * 0.7) {
+        p = 70 + Math.random() * 2;
+      } else {
+        p = (elapsed / MIN_LOAD_MS) * 100;
+      }
+    } else if (ready) {
+      p = 100;
+    } else {
+      p = 95 + Math.random() * 2;
     }
-  }, 200);
+
+    p = Math.min(100, Math.max(0, p));
+
+    if (progress) progress.style.width = p.toFixed(1) + '%';
+
+    if (p >= 100) {
+      clearInterval(interval);
+      setTimeout(() => {
+        document.querySelectorAll('.cinematic-bg, .aerial-image, .extra-image')?.forEach(el => el?.classList.add('loaded'));
+        loading?.classList.add('hidden');
+      }, 1200);
+    }
+  }, 50);
 });
 
 class AmbientAudio {
