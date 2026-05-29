@@ -3,7 +3,7 @@ class RevealAnimations {
     for (const section of document.querySelectorAll('.section, .cinematic-break, .chapter-header')) {
       const reveals = section.querySelectorAll('[data-reveal]');
       reveals.forEach((el, i) => {
-        el.style.transitionDelay = `${i * 0.15}s`;
+        el.style.transitionDelay = `${i * 0.1}s`;
       });
     }
 
