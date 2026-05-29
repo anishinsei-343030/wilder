@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Wilder — A cinematic journey through untamed landscapes. Dawn, Wilderness, Storm, Nightfall, Frozen Earth, Oceans, Beyond the Clouds.">
+  <meta property="og:title" content="Wilder">
+  <meta property="og:description" content="A cinematic journey through untamed landscapes.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Wilder">
+  <meta name="twitter:description" content="A cinematic journey through untamed landscapes.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="author" content="AniShinSei">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🏔️</text></svg>">
+
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="preload" href="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80" as="image">
+  <link rel="preload" href="https://images.unsplash.com/photo-1470071459604-7b8ec44ffd0e?w=1600&q=80" as="image">
+  <link rel="preload" href="https://images.unsplash.com/photo-1765891597474-e290eabcb626?w=1600&q=80" as="image">
+  <link rel="preload" href="https://images.unsplash.com/photo-1748288536909-264b4ef79eb4?w=1600&q=80" as="image">
+  <link rel="preload" href="https://images.unsplash.com/photo-1768954531915-f448e912d1fc?w=1600&q=80" as="image">
+
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Inter:wght@300;400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Inter:wght@300;400&display=swap"></noscript>
+
+  <link rel="stylesheet" href="css/main.css">
+
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
+  <noscript>
+    <style>
+      .loading-screen { display: none !important; }
+      [data-reveal] { opacity: 1 !important; transform: none !important; }
+      .parallax-layer { transform: none !important; }
+    </style>
+  </noscript>
+
+  <title>Wilder</title>
+</head>
+<body>
+
+  <div class="loading-screen" id="loadingScreen" role="status" aria-label="Loading">
+    <div class="loading-content">
+      <h1 class="loading-title">WILDER</h1>
+      <div class="loading-bar"><div class="loading-progress" id="loadingProgress"></div></div>
+      <p class="loading-text">Entering the wild</p>
+    </div>
+  </div>
+
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
+  <canvas id="grainCanvas" aria-hidden="true"></canvas>
+  <div id="cursorGlow" aria-hidden="true"></div>
+
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar-inner">
+      <a href="#" class="navbar-logo" aria-label="Wilder home">WILDER</a>
+      <div class="navbar-links">
+        <a href="#dawn" class="navbar-link">Dawn</a>
+        <a href="#wilderness" class="navbar-link">Wilderness</a>
+        <a href="#storm" class="navbar-link">Storm</a>
+        <a href="#nightfall" class="navbar-link">Nightfall</a>
+        <a href="#escape" class="navbar-link">Escape</a>
+      </div>
+      <button class="audio-toggle" id="audioToggle" aria-label="Toggle ambient sound">
+        <span class="audio-icon">♫</span>
+      </button>
+    </div>
+  </nav>
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <main id="main-content">
+
+    <!-- ── HERO ── -->
+    <section class="hero section" id="hero">
+      <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80');" role="img" aria-label="Misty mountain landscape at dawn"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow caption" data-reveal>Explore the untamed</p>
+        <h1 class="hero-title display-1" data-reveal>Where the<br>wilderness<br>speaks</h1>
+        <p class="hero-subtitle body-large" data-reveal>Journey through Earth's most breathtaking landscapes, where every horizon tells a story older than time.</p>
+        <a href="#dawn" class="hero-cta" data-reveal data-magnetic>
+          <span class="cta-text">Begin the journey</span>
+          <span class="cta-arrow">→</span>
+        </a>
+      </div>
+      <div class="scroll-hint" data-reveal>
+        <span class="scroll-hint-text">Scroll to explore</span>
+        <div class="scroll-line"></div>
+      </div>
+      <div class="fog-overlay" aria-hidden="true">
+        <div class="fog-layer fog-layer-1"></div>
+        <div class="fog-layer fog-layer-2"></div>
+      </div>
+    </section>
+
+    <!-- ══════════ CHAPTER I: DAWN ══════════ -->
+    <div class="section-transition" aria-hidden="true"></div>
+
+    <section class="chapter-header" id="dawn">
+      <div class="chapter-header-bg" style="background-image: url('https://images.unsplash.com/photo-1761878845376-e5561ddcc151?w=1600&q=80');" aria-hidden="true"></div>
+      <p class="chapter-number caption" data-reveal>Chapter I</p>
+      <h2 class="chapter-title display-2" data-reveal>Dawn</h2>
+      <p class="chapter-subtitle body-large" data-reveal>Where light begins its quiet conquest of the dark.</p>
+    </section>
+
+    <section class="cinematic-panel section chapter-dawn">
+      <div class="cinematic-panel-image" style="background-image: url('https://images.unsplash.com/photo-1765891597474-e290eabcb626?w=1600&q=80');" role="img" aria-label="Norwegian pine forest at sunrise"></div>
+      <div class="cinematic-panel-overlay"></div>
+      <div class="cinematic-panel-content">
+        <p class="cinematic-panel-eyebrow caption" data-reveal>First light</p>
+        <h2 class="display-2" data-reveal>Golden mist<br>and waking pines</h2>
+        <div class="cinematic-panel-divider" data-reveal></div>
+        <p class="body-large" data-reveal>The forest breathes slowly at dawn. Each shaft of light carries the whisper of a new beginning — ancient, patient, unbothered by the world that sleeps.</p>
+      </div>
+      <div class="fog-overlay" aria-hidden="true" style="opacity: 0.5;">
+        <div class="fog-layer fog-layer-1"></div>
+        <div class="fog-layer fog-layer-2"></div>
+      </div>
+    </section>
+
+    <section class="chapter-gallery section chapter-dawn">
+      <div class="chapter-gallery-grid">
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-card-image">
+            <img src="https://images.unsplash.com/photo-1769607205777-200684f2cd24?w=800&q=80" alt="Golden sunbeams piercing morning fog over rolling treetops" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-number caption">01</p>
+            <h3 class="gallery-card-title">Morning Veil</h3>
+            <p class="gallery-card-description body-large">Sunbeams carve through the mist, revealing a world waking slowly beneath a golden canopy.</p>
+          </div>
+        </article>
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-card-image">
+            <img src="https://images.unsplash.com/photo-1761878845376-e5561ddcc151?w=800&q=80" alt="Misty lake at sunrise with golden sky" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-number caption">02</p>
+            <h3 class="gallery-card-title">Still Waters</h3>
+            <p class="gallery-card-description body-large">A mountain lake holds the morning sky in perfect stillness, as if time itself has paused to admire.</p>
+          </div>
+        </article>
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-card-image">
+            <img src="https://images.unsplash.com/photo-1490604001847-b712b0c2f967?w=800&q=80" alt="Misty lake at sunrise with mountain reflection" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-number caption">03</p>
+            <h3 class="gallery-card-title">The Awakening</h3>
+            <p class="gallery-card-description body-large">Dawn settles over the valley — a slow, golden breath that turns the world from shadow into form.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════ CHAPTER II: WILDERNESS ══════════ -->
+    <div class="section-transition" aria-hidden="true"></div>
+
+    <section class="chapter-header" id="wilderness">
+      <div class="chapter-header-bg" style="background-image: url('https://images.unsplash.com/photo-1765871319901-0aaafe3f1a2a?w=1600&q=80');" aria-hidden="true"></div>
+      <p class="chapter-number caption" data-reveal>Chapter II</p>
+      <h2 class="chapter-title display-2" data-reveal>Wilderness</h2>
+      <p class="chapter-subtitle body-large" data-reveal>The world before us — vast, untamed, impossibly alive.</p>
+    </section>
+
+    <section class="split-panel section chapter-wilderness reverse">
+      <div class="split-panel-image">
+        <img src="https://images.unsplash.com/photo-1765871319901-0aaafe3f1a2a?w=1200&q=80" alt="Layered misty forest valley with mountain silhouettes" loading="lazy">
+      </div>
+      <div class="split-panel-content" data-reveal>
+        <p class="caption">Into the deep</p>
+        <h2 class="display-2">Where the earth<br>breathes freely</h2>
+        <div class="split-panel-divider"></div>
+        <p class="body-large">There are places where your voice is swallowed by the sheer scale of everything around you. Not as a warning — as an invitation to listen instead.</p>
+      </div>
+    </section>
+
+    <section class="chapter-gallery section chapter-wilderness">
+      <div class="chapter-gallery-grid">
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-card-image">
+            <img src="https://images.unsplash.com/photo-1759182391264-73c1be282907?w=800&q=80" alt="River winding through Alaska forest toward mountains" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-number caption">01</p>
+            <h3 class="gallery-card-title">The Flow</h3>
+            <p class="gallery-card-description body-large">A river carves its path through ancient forest, carrying meltwater from peaks that have watched over this valley for millennia.</p>
+          </div>
+        </article>
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-card-image">
+            <img src="https://images.unsplash.com/photo-1770736957456-d552bc016472?w=800&q=80" alt="Dark pine forest shrouded in thick mist" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-number caption">02</p>
+            <h3 class="gallery-card-title">The Deep Wood</h3>
+            <p class="gallery-card-description body-large">Mist clings to the pines like the forest's own breath, softening every edge, deepening every shadow.</p>
+          </div>
+        </article>
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-card-image">
+            <img src="https://images.unsplash.com/photo-1777067165450-60573b8afd54?w=800&q=80" alt="Misty forest path surrounded by tall evergreen trees" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-number caption">03</p>
+            <h3 class="gallery-card-title">The Path</h3>
+            <p class="gallery-card-description body-large">A trail winds into the unknown — not to be conquered, but to be walked slowly, with reverence.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════ EXPLORATION GRID (interlude) ══════════ -->
+    <div class="section-transition" aria-hidden="true"></div>
+
+    <section class="exploration section" id="exploration">
+      <div class="section-header">
+        <p class="caption" data-reveal>Landscapes</p>
+        <h2 class="display-2" data-reveal>Explore the elements</h2>
+        <p class="body-large" data-reveal>Four worlds, one planet. Each landscape holds a different kind of silence.</p>
+      </div>
+      <div class="exploration-grid">
+        <article class="exploration-card" data-reveal>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1777726331784-f5f8055bdb11?w=800&q=80" alt="Misty forest landscape" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="card-body">
+            <p class="card-number caption">01</p>
+            <h3 class="card-title">Forests</h3>
+            <p class="card-description body-large">Where light filters through ancient canopies and fog weaves between towering pines.</p>
+          </div>
+        </article>
+        <article class="exploration-card" data-reveal>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80" alt="Mountain peak at sunrise" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="card-body">
+            <p class="card-number caption">02</p>
+            <h3 class="card-title">Mountains</h3>
+            <p class="card-description body-large">Silent giants that pierce the clouds, guarding valleys carved by time itself.</p>
+          </div>
+        </article>
+        <article class="exploration-card" data-reveal>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?w=800&q=80" alt="Ocean horizon" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="card-body">
+            <p class="card-number caption">03</p>
+            <h3 class="card-title">Oceans</h3>
+            <p class="card-description body-large">Endless blue meeting the sky, where waves compose a rhythm older than memory.</p>
+          </div>
+        </article>
+        <article class="exploration-card" data-reveal>
+          <div class="card-image">
+            <img src="https://images.unsplash.com/photo-1509122696753-d01769640838?w=800&q=80" alt="Snow-capped mountain over dark water" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="card-body">
+            <p class="card-number caption">04</p>
+            <h3 class="card-title">Snowfall</h3>
+            <p class="card-description body-large">A world hushed by winter's touch, where each flake writes poetry on the ground.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════ SPOTLIGHT ══════════ -->
+    <div class="section-transition" aria-hidden="true"></div>
+
+    <section class="spotlight section" id="spotlight">
+      <div class="spotlight-image">
+        <img src="https://images.unsplash.com/photo-1758781102552-b6ed66cbafe3?w=1600&q=80" alt="Misty forest with sunbeams piercing through dense fog" loading="lazy">
+      </div>
+      <div class="spotlight-content">
+        <p class="caption" data-reveal>Scenery of the moment</p>
+        <h2 class="display-2" data-reveal>Where light<br>meets the mist</h2>
+        <div class="spotlight-divider" data-reveal></div>
+        <p class="body-large" data-reveal>Somewhere in the ancient forests of the Pacific Northwest, light finds its way through the fog. Each beam a thread connecting sky and earth — a moment so fleeting it can only be witnessed, never held.</p>
+        <p class="spotlight-location caption" data-reveal>Olympic National Park, Washington</p>
+      </div>
+    </section>
+
+    <!-- ══════════ CHAPTER III: STORM ══════════ -->
+    <div class="section-transition" aria-hidden="true"></div>
+
+    <section class="chapter-header" id="storm">
+      <div class="chapter-header-bg" style="background-image: url('https://images.unsplash.com/photo-1769411972412-234cdb5a181b?w=1600&q=80');" aria-hidden="true"></div>
+      <p class="chapter-number caption" data-reveal>Chapter III</p>
+      <h2 class="chapter-title display-2" data-reveal>Storm</h2>
+      <p class="chapter-subtitle body-large" data-reveal>The sky remembers its power — and the earth listens.</p>
+    </section>
+
+    <section class="immersive-panel section chapter-storm">
+      <div class="immersive-panel-image" style="background-image: url('https://images.unsplash.com/photo-1769411972412-234cdb5a181b?w=1600&q=80');" role="img" aria-label="Dramatic storm sky with sunlight breaking through massive dark clouds"></div>
+      <div class="immersive-panel-overlay"></div>
+      <div class="weather-rain" aria-hidden="true"></div>
+      <div class="weather-lightning" aria-hidden="true"></div>
+      <div class="immersive-panel-content" data-reveal>
+        <p class="caption">Before the deluge</p>
+        <p class="display-2">The sky<br>unravels</p>
+        <div class="immersive-panel-divider"></div>
+        <p class="body-large">The storm does not whisper. It tears across the horizon with ancient fury — each crack of thunder a reminder that nature bows to no one.</p>
+      </div>
+    </section>
+
+    <section class="chapter-gallery section chapter-storm">
+      <div class="chapter-gallery-grid">
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-card-image">
+            <img src="https://images.unsplash.com/photo-1759458540602-f18e3d8e2a7c?w=800&q=80" alt="Heavy storm clouds gathering over a vast dark landscape" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-number caption">01</p>
+            <h3 class="gallery-card-title">The Gathering</h3>
+            <p class="gallery-card-description body-large">Darkness builds on the horizon — a slow, deliberate assembly of cloud and pressure and electric charge.</p>
+          </div>
+        </article>
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-card-image">
+            <img src="https://images.unsplash.com/photo-1775411597467-7a985745371b?w=800&q=80" alt="Dark ominous storm clouds over a silhouetted forest horizon" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-number caption">02</p>
+            <h3 class="gallery-card-title">The Weight</h3>
+            <p class="gallery-card-description body-large">The air thickens. The forest darkens. The earth holds its breath in the moment before release.</p>
+          </div>
+        </article>
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-card-image">
+            <img src="https://images.unsplash.com/photo-1766372190157-f6cb711a37db?w=800&q=80" alt="Dramatic clouds with light breaking through" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-number caption">03</p>
+            <h3 class="gallery-card-title">The Break</h3>
+            <p class="gallery-card-description body-large">And then — light. A crack in the armor of the sky, reminding us that even storms must pass.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════ CINEMATIC BREAK ══════════ -->
+    <div class="section-transition" aria-hidden="true"></div>
+
+    <section class="cinematic-break" id="cinematic">
+      <div class="cinematic-bg" style="background-image: url('https://images.unsplash.com/photo-1470071459604-7b8ec44ffd0e?w=1600&q=80');" role="img" aria-label="Misty forest with sunbeams"></div>
+      <div class="cinematic-overlay"></div>
+      <div class="cinematic-content">
+        <div class="cinematic-text-block" data-reveal>
+          <p class="cinematic-line caption">There are places that</p>
+          <p class="cinematic-line display-1">Do not care</p>
+          <p class="cinematic-line display-1">If you exist.</p>
+        </div>
+        <div class="cinematic-text-block" data-reveal style="margin-top: 3rem; max-width: 500px; align-self: flex-end;">
+          <p class="body-large" style="color: var(--warm-gray);">And that is precisely why you should go.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ CHAPTER IV: NIGHTFALL ══════════ -->
+    <div class="section-transition" aria-hidden="true"></div>
+
+    <section class="chapter-header" id="nightfall">
+      <div class="chapter-header-bg" style="background-image: url('https://images.unsplash.com/photo-1728279320747-e29867b7e455?w=1600&q=80');" aria-hidden="true"></div>
+      <p class="chapter-number caption" data-reveal>Chapter IV</p>
+      <h2 class="chapter-title display-2" data-reveal>Nightfall</h2>
+      <p class="chapter-subtitle body-large" data-reveal>The day surrenders, and the universe emerges from hiding.</p>
+    </section>
+
+    <section class="split-panel section chapter-nightfall vertical">
+      <div class="split-panel-image">
+        <img src="https://images.unsplash.com/photo-1728279320747-e29867b7e455?w=1200&q=80" alt="Green and purple aurora borealis over pine trees" loading="lazy">
+        <div class="weather-stars" aria-hidden="true"></div>
+      </div>
+      <div class="split-panel-content" data-reveal>
+        <p class="caption">The dark arrives</p>
+        <h2 class="display-2">Light dances<br>in the silence</h2>
+        <div class="split-panel-divider"></div>
+        <p class="body-large">Above the tree line, the sky becomes a canvas. Aurora, stars, and the slow arc of galaxies remind us how small we are — and how extraordinarily lucky to witness it.</p>
+      </div>
+    </section>
+
+    <section class="chapter-gallery section chapter-nightfall">
+      <div class="chapter-gallery-grid">
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-card-image">
+            <img src="https://images.unsplash.com/photo-1771944162983-41647a1298af?w=800&q=80" alt="Aurora borealis over a snowy forest landscape" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-number caption">01</p>
+            <h3 class="gallery-card-title">The Veil</h3>
+            <p class="gallery-card-description body-large">Green and violet light sweeps across the firmament — a celestial dance visible only to those who brave the cold and dark.</p>
+          </div>
+        </article>
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-card-image">
+            <img src="https://images.unsplash.com/photo-1753925364019-0fa40a7eac5a?w=800&q=80" alt="Milky way arching over Yosemite Valley at night" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-number caption">02</p>
+            <h3 class="gallery-card-title">The Arch</h3>
+            <p class="gallery-card-description body-large">The Milky Way bends over granite cliffs — a bridge of ancient light connecting the earth to everything beyond.</p>
+          </div>
+        </article>
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-card-image">
+            <img src="https://images.unsplash.com/photo-1753298999159-fd560db9cff4?w=800&q=80" alt="Milky way over dark mountain silhouette" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-number caption">03</p>
+            <h3 class="gallery-card-title">The Watch</h3>
+            <p class="gallery-card-description body-large">Mountains stand sentinel under a river of stars, keeping their silent vigil through the endless night.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════ STILLNESS ══════════ -->
+    <section class="stillness section" id="stillness">
+      <div class="stillness-image">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&q=80" alt="Ocean horizon at golden hour" loading="lazy">
+      </div>
+      <div class="stillness-overlay"></div>
+      <div class="stillness-content" data-reveal>
+        <h2 class="display-2">Stillness</h2>
+        <div class="stillness-divider"></div>
+        <p class="body-large">The world does not need you to move. Sometimes, the bravest thing is to stop — and let the silence hold you.</p>
+      </div>
+    </section>
+
+    <!-- ══════════ QUOTE ══════════ -->
+    <section class="quote section" id="quote">
+      <blockquote data-reveal>
+        <p class="display-2 quote-text">"The mountains are calling, and I must go."</p>
+        <footer class="quote-attribution caption">— John Muir</footer>
+      </blockquote>
+    </section>
+
+    <!-- ══════════ CHAPTER V: FROZEN EARTH ══════════ -->
+    <div class="section-transition" aria-hidden="true"></div>
+
+    <section class="chapter-header" id="frozen">
+      <div class="chapter-header-bg" style="background-image: url('https://images.unsplash.com/photo-1766598575246-7eddead93465?w=1600&q=80');" aria-hidden="true"></div>
+      <p class="chapter-number caption" data-reveal>Chapter V</p>
+      <h2 class="chapter-title display-2" data-reveal>Frozen Earth</h2>
+      <p class="chapter-subtitle body-large" data-reveal>In the deepest cold, the world finds its quietest voice.</p>
+    </section>
+
+    <section class="spacious-panel section chapter-frozen">
+      <div class="spacious-panel-image" style="background-image: url('https://images.unsplash.com/photo-1766598575246-7eddead93465?w=1600&q=80');" role="img" aria-label="Blue glacier ice under moody cloudy sky"></div>
+      <div class="spacious-panel-overlay"></div>
+      <div class="weather-snow" aria-hidden="true"></div>
+      <div class="spacious-panel-content" data-reveal>
+        <p class="caption">The great silence</p>
+        <h2 class="display-2">Ice that remembers</h2>
+        <div class="spacious-panel-divider"></div>
+        <p class="body-large">Glaciers are archives of time itself. Each layer of ice a page in Earth's diary, written in language colder and more honest than words.</p>
+      </div>
+    </section>
+
+    <section class="chapter-gallery section chapter-frozen">
+      <div class="chapter-gallery-grid">
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-card-image">
+            <img src="https://images.unsplash.com/photo-1751420860836-27725d132fb7?w=800&q=80" alt="Glacial ice and snow texture" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-number caption">01</p>
+            <h3 class="gallery-card-title">Ancient Ice</h3>
+            <p class="gallery-card-description body-large">Deep within the glacier, light travels through ice that has not seen the sky in centuries — a blue so pure it feels sacred.</p>
+          </div>
+        </article>
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-card-image">
+            <img src="https://images.unsplash.com/photo-1768120218571-e5d392075da1?w=800&q=80" alt="Aerial view of textured glacier with deep blue ice crevasses" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-number caption">02</p>
+            <h3 class="gallery-card-title">The Crevasse</h3>
+            <p class="gallery-card-description body-large">From above, the glacier reveals its fractures — a map of pressure and movement carved in frozen white.</p>
+          </div>
+        </article>
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-card-image">
+            <img src="https://images.unsplash.com/photo-1509122696753-d01769640838?w=800&q=80" alt="Snow-capped mountain over dark water" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-number caption">03</p>
+            <h3 class="gallery-card-title">The Summit</h3>
+            <p class="gallery-card-description body-large">Snow-capped and cloud-wrapped, the peak stands alone — a monument to the patience of cold and the passage of ages.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════ CHAPTER VI: OCEANS ══════════ -->
+    <div class="section-transition" aria-hidden="true"></div>
+
+    <section class="chapter-header" id="oceans">
+      <div class="chapter-header-bg" style="background-image: url('https://images.unsplash.com/photo-1768954531915-f448e912d1fc?w=1600&q=80');" aria-hidden="true"></div>
+      <p class="chapter-number caption" data-reveal>Chapter VI</p>
+      <h2 class="chapter-title display-2" data-reveal>Oceans</h2>
+      <p class="chapter-subtitle body-large" data-reveal>Where the horizon dissolves and the soul remembers its vastness.</p>
+    </section>
+
+    <section class="cinematic-panel section chapter-oceans">
+      <div class="cinematic-panel-image" style="background-image: url('https://images.unsplash.com/photo-1768954531915-f448e912d1fc?w=1600&q=80');" role="img" aria-label="Dark dramatic clouds over a turbulent ocean"></div>
+      <div class="cinematic-panel-overlay"></div>
+      <div class="cinematic-panel-content" data-reveal style="text-align: center; margin: 0 auto;">
+        <p class="cinematic-panel-eyebrow caption">The endless blue</p>
+        <h2 class="display-2">Where sky meets<br>the deep</h2>
+        <div class="cinematic-panel-divider" style="margin: 1.25rem auto;"></div>
+        <p class="body-large">The ocean does not ask where you've been or where you're going. It simply is — vast, ancient, and utterly indifferent to your plans.</p>
+      </div>
+    </section>
+
+    <section class="chapter-gallery section chapter-oceans">
+      <div class="chapter-gallery-grid two-col">
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-card-image">
+            <img src="https://images.unsplash.com/photo-1759759260416-4720340a4565?w=800&q=80" alt="Cliffs of Moher meeting dark churning ocean" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-number caption">01</p>
+            <h3 class="gallery-card-title">The Edge</h3>
+            <p class="gallery-card-description body-large">Cliffs stand defiant against the relentless rhythm of the sea — a conversation between stone and water that has lasted forever.</p>
+          </div>
+        </article>
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-card-image">
+            <img src="https://images.unsplash.com/photo-1769317996569-0a23b3f426f7?w=800&q=80" alt="Rocky Big Sur coastline shrouded in mist" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-number caption">02</p>
+            <h3 class="gallery-card-title">The Coast</h3>
+            <p class="gallery-card-description body-large">Where land meets sea in an embrace of fog and foam — a boundary that shifts with every tide, never the same twice.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════ CHAPTER VII: BEYOND THE CLOUDS ══════════ -->
+    <div class="section-transition" aria-hidden="true"></div>
+
+    <section class="chapter-header" id="clouds">
+      <div class="chapter-header-bg" style="background-image: url('https://images.unsplash.com/photo-1748288536909-264b4ef79eb4?w=1600&q=80');" aria-hidden="true"></div>
+      <p class="chapter-number caption" data-reveal>Chapter VII</p>
+      <h2 class="chapter-title display-2" data-reveal>Beyond the Clouds</h2>
+      <p class="chapter-subtitle body-large" data-reveal>Above the weather, above the noise — a world of pure altitude.</p>
+    </section>
+
+    <section class="aerial-panel section chapter-clouds">
+      <div class="aerial-panel-image" style="background-image: url('https://images.unsplash.com/photo-1748288536909-264b4ef79eb4?w=1600&q=80');" role="img" aria-label="Jagged mountain peaks rising above a sea of clouds"></div>
+      <div class="aerial-panel-overlay"></div>
+      <div class="weather-sunrays" aria-hidden="true"></div>
+      <div class="weather-clouds" aria-hidden="true"><span class="cloud-layer-3"></span></div>
+      <div class="aerial-panel-content" data-reveal>
+        <p class="caption">Above it all</p>
+        <h2 class="display-2">Peaks in<br>the sky</h2>
+        <div class="cinematic-panel-divider"></div>
+        <p class="body-large">From up here, the world below is hidden beneath a blanket of cloud. Only the truest forms remain — peaks, light, and the thin air that makes everything feel more real.</p>
+      </div>
+    </section>
+
+    <section class="chapter-gallery section chapter-clouds">
+      <div class="chapter-gallery-grid">
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-card-image">
+            <img src="https://images.unsplash.com/photo-1768185595034-69de2bfe7848?w=800&q=80" alt="Snow-capped Mount Fuji emerging from clouds" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-number caption">01</p>
+            <h3 class="gallery-card-title">The Icon</h3>
+            <p class="gallery-card-description body-large">Mount Fuji rises from a sea of clouds — a perfect silhouette that has inspired poets, painters, and pilgrims for centuries.</p>
+          </div>
+        </article>
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-card-image">
+            <img src="https://images.unsplash.com/photo-1778483154532-05d26c21e777?w=800&q=80" alt="Mountain peak emerging from golden clouds at sunrise" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-number caption">02</p>
+            <h3 class="gallery-card-title">Golden Hour</h3>
+            <p class="gallery-card-description body-large">The summit catches the last light of day while the world below already sleeps in shadow — a privilege of height.</p>
+          </div>
+        </article>
+        <article class="gallery-card" data-reveal>
+          <div class="gallery-card-image">
+            <img src="https://images.unsplash.com/photo-1705158924910-1fb7a59705d4?w=800&q=80" alt="Snow-covered peaks above clouds" loading="lazy">
+            <div class="card-image-sweep"></div>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-number caption">03</p>
+            <h3 class="gallery-card-title">The Ridge</h3>
+            <p class="gallery-card-description body-large">A jagged spine of snow and rock cuts through the cloud layer — the earth's skeleton, laid bare against the thin blue sky.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════ ENDING ══════════ -->
+    <div class="section-transition" aria-hidden="true"></div>
+
+    <section class="ending section" id="escape">
+      <div class="ending-bg" style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1600&q=80');" role="img" aria-label="Starry night sky over mountains"></div>
+      <div class="ending-overlay"></div>
+      <div class="ending-content" data-reveal>
+        <p class="ending-eyebrow caption">Epilogue</p>
+        <h2 class="display-1 ending-title">Some places<br>are meant to be<br><em>felt</em>.</h2>
+        <div class="ending-divider"></div>
+        <p class="body-large ending-subtitle">Not photographed. Not checked in. Not posted. Just felt.</p>
+        <p class="ending-credit caption">WILDER — A cinematic escape into nature</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <p class="footer-brand">WILDER</p>
+      <p class="footer-text">A cinematic journey through nature's finest landscapes.</p>
+      <p class="footer-credit caption">Photography by Unsplash contributors. Ambient sounds from the natural world.</p>
+      <p class="footer-colophon caption">Crafted for Wild Hearts · AniShinSei</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/particles.js" defer></script>
+  <script src="js/effects.js" defer></script>
+  <script src="js/transitions.js" defer></script>
+
+</body>
+</html>
